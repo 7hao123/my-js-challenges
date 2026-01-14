@@ -3,7 +3,7 @@
  * @param {*} promises
  * @returns
  * 返回一个新的promise,状态取决于promises的执行
- * 只要有一个promise失败则reject，返回第一个失败的原因
+ * 只要有一个promise失败则reject,返回第一个失败的原因
  */
 
 Promise.myAll = (promises) => {
