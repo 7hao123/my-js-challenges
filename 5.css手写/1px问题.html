@@ -1,0 +1,15 @@
+.div {
+  border-width: 1px;
+}
+/* 两倍像素下 */
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .div {
+    border-width: 0.5px;
+  }
+}
+/* 三倍像素下 */
+@media screen and (-webkit-min-device-pixel-ratio: 3) {
+  .div {
+    border-width: 0.333333px;
+  }
+}

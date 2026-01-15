@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .trapezoid {
+  /* 核心：将元素自身的宽高设为0，靠边框撑出形状 */
+  width: 60px;
+  /* 调整四个边框的宽度和颜色，透明边框形成斜面 */
+  /* 上边框：宽度0（无），左右边框：透明且有宽度（形成斜边），下边框：有颜色且有宽度（梯形底边） */
+  border-top: 0 solid transparent;
+  border-left: 50px solid transparent;  /* 左侧斜边宽度 */
+  border-right: 50px solid transparent; /* 右侧斜边宽度 */
+  border-bottom: 80px solid #4285f4;   /* 底边宽度和颜色 */
+  /* 可选：调整位置 */
+  margin: 20px;
+}
+    </style>
+</head>
+<body>
+    <div class="trapezoid"></div>
+</body>
+</html>
