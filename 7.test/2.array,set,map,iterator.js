@@ -39,3 +39,5 @@ for (let item of Object.values(obj)) {
 for (let item of Object.entries(obj)) {
   console.log(item);
 }
+
+// 只有有iterator.symbol属性的对象才是可迭代的，可以通关value[Symbol.iterator] === function来判断
