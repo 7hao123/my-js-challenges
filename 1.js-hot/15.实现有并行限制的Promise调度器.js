@@ -37,3 +37,35 @@ addTask(1000, "1");
 addTask(500, "2");
 addTask(300, "3");
 addTask(400, "4");
+
+class Scheduler {
+  constructor(max) {
+    this.max = max;
+    this.count = 0;
+    this.queue = [];
+  }
+
+  add(fn) {
+    // 封装实际执行逻辑
+    const run = () => {
+      this.count++;
+      return fn().then((res) => {
+        this.count--;
+        // 唤醒队列中第一个等待的任务
+        if (this.queue.length) this.queue.shift()();
+        return res;
+      });
+      // 注意：如果 fn() 抛出错误，上面这行 return 不会执行，
+      // 导致 count-- 和唤醒都不会发生（与原 await 代码缺陷一致）
+    };
+
+    // 并发已满则等待，否则直接执行
+    if (this.count >= this.max) {
+      return new Promise((resolve) => {
+        this.queue.push(resolve);
+      }).then(run);
+    }
+
+    return run();
+  }
+}

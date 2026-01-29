@@ -12,9 +12,12 @@ function inheritPrototype(Child, Parent) {
 function Parent(name) {
   this.name = name; // 实例属性（独立）
   this.hobbies = ["看书"];
+  this.sayhi = function () {
+    console.log("hi");
+  };
 }
+// 挂在原型链上面，所有实例共享，如果挂在this上，则每个child会有一个副本
 Parent.prototype.sayName = function () {
-  // 原型方法（复用）
   console.log(this.name);
 };
 
