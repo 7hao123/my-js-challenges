@@ -28,3 +28,13 @@
 //     }
 //   ]
 // }
+
+function dom2Json(dom) {
+  let obj = {};
+  obj.name = dom.tagName;
+  obj.children = [];
+  dom.childNodes.forEach((child) => {
+    obj.children.push(dom2Json(child));
+  });
+  return obj;
+}
